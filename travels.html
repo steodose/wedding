@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-page="travels">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Travels — Danielle & Stephan</title>
+  <meta name="description" content="Explore the places Danielle and Stephan have traveled together.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Our Travels — Danielle & Stephan">
+  <meta property="og:description" content="A map of everywhere we've been together.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <style>
+    .tableau-wrapper {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-inline: auto;
+      padding: 0 var(--space-md) var(--space-xl);
+    }
+
+    .tableauPlaceholder {
+      width: 100%;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div id="nav-root"></div>
+
+  <!-- ── Page Header ────────────────────────────────────────── -->
+  <header class="page-hero">
+    <p class="eyebrow">Adventures Together</p>
+    <h1>Our Travels</h1>
+  </header>
+
+  <!-- ── Tableau Dashboard ───────────────────────────────────── -->
+  <main>
+    <div class="tableau-wrapper fade-in">
+
+      <div class="tableauPlaceholder" id="viz-travels">
+        <noscript>
+          <a href="https://public.tableau.com/views/GlobalTravels/GlobalTravels">
+            <img alt="Global Travels" src="https://public.tableau.com/static/images/Gl/GlobalTravels/GlobalTravels/1_rss.png" style="border: none">
+          </a>
+        </noscript>
+        <object class="tableauViz" style="display:none;">
+          <param name="host_url"           value="https%3A%2F%2Fpublic.tableau.com%2F">
+          <param name="embed_code_version" value="3">
+          <param name="site_root"          value="">
+          <param name="name"               value="GlobalTravels/GlobalTravels">
+          <param name="tabs"               value="no">
+          <param name="toolbar"            value="yes">
+          <param name="animate_transition" value="yes">
+          <param name="display_static_image" value="yes">
+          <param name="display_spinner"    value="yes">
+          <param name="display_overlay"    value="yes">
+          <param name="display_count"      value="n">
+          <param name="language"           value="en-US">
+        </object>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer>
+    <p>A Between the Pipes project for <span>Danielle &amp; Stephan</span> &nbsp;·&nbsp; Created Feb 2025</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/nav.js"></script>
+  <script src="js/scroll-animations.js"></script>
+  <script>
+    // Size and inject the Tableau viz
+    var divElement  = document.getElementById('viz-travels');
+    var vizElement  = divElement.getElementsByTagName('object')[0];
+
+    function sizeViz() {
+      // Maintain a 4:3 aspect ratio, full container width
+      vizElement.style.width  = '100%';
+      vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+    }
+
+    sizeViz();
+    window.addEventListener('resize', sizeViz);
+
+    var scriptElement   = document.createElement('script');
+    scriptElement.src   = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  </script>
+</body>
+</html>

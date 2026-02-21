@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-page="index">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danielle & Stephan — Wedding 2027</title>
+  <meta name="description" content="Join us to celebrate the wedding of Danielle & Stephan. Please RSVP by [Date].">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Danielle & Stephan — Wedding 2027">
+  <meta property="og:description" content="We're getting married! Join us to celebrate our special day.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div id="nav-root"></div>
+
+  <!-- ── Hero Photo ─────────────────────────────────────────── -->
+  <section class="hero" aria-label="Hero photo">
+    <img class="hero-img" src="images/hero.png" alt="Danielle and Stephan">
+
+    <!-- Overlay text on photo (optional — uncomment to use) -->
+    <!--
+    <div class="hero-overlay">
+      <p class="hero-eyebrow">Together Forever</p>
+    </div>
+    -->
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── Names + Date ───────────────────────────────────────── -->
+  <section class="home-names">
+    <div class="fade-in">
+      <h1>
+        Danielle
+        <span class="ampersand">&amp;</span>
+        Stephan
+      </h1>
+      <div class="divider"></div>
+      <div class="wedding-meta">
+        <p class="wedding-date">Saturday · October 11, 2027</p>
+        <p class="wedding-location">Location TBD · City, State</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Countdown ─────────────────────────────────────────── -->
+  <section class="countdown-section" aria-label="Countdown to the wedding">
+    <p class="eyebrow">Days Until We Say I Do</p>
+    <div class="countdown-grid fade-in-group">
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-days">—</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-hours">—</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-minutes">—</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-seconds">—</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Quick Links ────────────────────────────────────────── -->
+  <section class="section quick-links">
+    <div class="section-header fade-in">
+      <p class="eyebrow">Everything You Need</p>
+      <h2>Plan Your Visit</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="quick-links-grid fade-in-group">
+      <a href="our-story.html" class="quick-link-card">
+        <div class="icon">✦</div>
+        <h3>Our Story</h3>
+        <p>How we met, our journey, and the proposal.</p>
+      </a>
+      <a href="gallery.html" class="quick-link-card">
+        <div class="icon">◈</div>
+        <h3>Gallery</h3>
+        <p>Engagement photos and memories.</p>
+      </a>
+      <a href="rsvp.html" class="quick-link-card">
+        <div class="icon">◇</div>
+        <h3>RSVP</h3>
+        <p>Let us know you're coming. We can't wait!</p>
+      </a>
+      <a href="registry.html" class="quick-link-card">
+        <div class="icon">◻</div>
+        <h3>Registry</h3>
+        <p>Help us build our home together.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer>
+    <p>A Between the Pipes project for <span>Danielle &amp; Stephan</span> &nbsp;·&nbsp; Created Feb 2025</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/nav.js"></script>
+  <script src="js/scroll-animations.js"></script>
+  <script>
+    // Countdown timer
+    (function () {
+      const weddingDate = new Date('2027-10-11T16:00:00');
+
+      function update() {
+        const now  = new Date();
+        const diff = weddingDate - now;
+
+        if (diff <= 0) {
+          document.getElementById('cd-days').textContent    = '0';
+          document.getElementById('cd-hours').textContent   = '0';
+          document.getElementById('cd-minutes').textContent = '0';
+          document.getElementById('cd-seconds').textContent = '0';
+          return;
+        }
+
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+
+        document.getElementById('cd-days').textContent    = String(d);
+        document.getElementById('cd-hours').textContent   = String(h).padStart(2, '0');
+        document.getElementById('cd-minutes').textContent = String(m).padStart(2, '0');
+        document.getElementById('cd-seconds').textContent = String(s).padStart(2, '0');
+      }
+
+      update();
+      setInterval(update, 1000);
+    })();
+  </script>
+</body>
+</html>

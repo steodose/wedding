@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" data-page="rsvp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSVP — Danielle & Stephan</title>
+  <meta name="description" content="RSVP to the wedding of Danielle and Stephan. Please respond by [RSVP Deadline].">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="RSVP — Danielle & Stephan">
+  <meta property="og:description" content="Please RSVP to our wedding. We hope to see you there!">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div id="nav-root"></div>
+
+  <!-- ── Page Header ────────────────────────────────────────── -->
+  <header class="page-hero">
+    <p class="eyebrow">We Hope to See You There</p>
+    <h1>RSVP</h1>
+  </header>
+
+  <!-- ── RSVP Content ───────────────────────────────────────── -->
+  <main>
+    <div class="rsvp-wrapper">
+
+      <!-- Intro -->
+      <div class="rsvp-intro fade-in">
+        <p>
+          Please respond by <strong>August 1, 2027</strong> so we can make sure
+          everything is perfect for your arrival. We're so excited to celebrate
+          with you!
+        </p>
+      </div>
+
+      <!-- ── Form ──────────────────────────────────────────── -->
+      <!--
+        ACTION: Replace "YOUR_FORMSPREE_ID" with your actual Formspree form ID.
+        Create a free account at https://formspree.io, create a new form,
+        and copy the endpoint (looks like: https://formspree.io/f/xyzabcde).
+        Paste that full URL as the action attribute below.
+      -->
+      <form
+        id="rsvp-form"
+        class="rsvp-form fade-in"
+        action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+        method="POST"
+      >
+        <!-- Hidden fields for Formspree config -->
+        <input type="hidden" name="_subject" value="New RSVP — Danielle & Stephan Wedding">
+        <input type="hidden" name="_replyto" value="">
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+        <!-- Name + Email -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your full name"
+              required
+              autocomplete="name"
+            >
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+              autocomplete="email"
+            >
+          </div>
+        </div>
+
+        <!-- Attending -->
+        <div class="form-group">
+          <label>Will you be attending? *</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input
+                type="radio"
+                id="attending-yes"
+                name="attending"
+                value="Yes, I'll be there!"
+                required
+              >
+              Joyfully accepts
+            </label>
+            <label class="radio-option">
+              <input
+                type="radio"
+                id="attending-no"
+                name="attending"
+                value="Regretfully declines"
+              >
+              Regretfully declines
+            </label>
+          </div>
+        </div>
+
+        <!-- Guest fields (hidden when not attending) -->
+        <div id="guest-fields">
+          <!-- Number of guests -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="guests">Number of Guests *</label>
+              <input
+                type="number"
+                id="guests"
+                name="guests"
+                min="1"
+                max="6"
+                placeholder="Including yourself"
+                data-required
+              >
+            </div>
+            <div class="form-group">
+              <label for="meal">Meal Preference *</label>
+              <select id="meal" name="meal" data-required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="Chicken">Chicken</option>
+                <option value="Beef">Beef</option>
+                <option value="Fish">Fish</option>
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="Vegan">Vegan</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dietary notes -->
+          <div class="form-group">
+            <label for="dietary">Dietary Restrictions or Allergies</label>
+            <input
+              type="text"
+              id="dietary"
+              name="dietary"
+              placeholder="Gluten-free, nut allergy, etc. (leave blank if none)"
+            >
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div class="form-group">
+          <label for="message">Note to the Couple</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Share a message, a memory, or just say hello…"
+            rows="4"
+          ></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="rsvp-submit">Send RSVP</button>
+        <p class="deadline-note">RSVP deadline: August 1, 2027</p>
+
+      </form>
+
+      <!-- ── Success State (shown after submission) ─────────── -->
+      <div id="rsvp-success" class="rsvp-success">
+        <div class="checkmark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2>We Got Your RSVP!</h2>
+        <p>
+          Thank you so much — we can't wait to celebrate with you.
+          Keep an eye on your inbox for updates as the big day approaches.
+        </p>
+        <br>
+        <a href="index.html" class="btn" style="margin-top: var(--space-sm);">Back to Home</a>
+      </div>
+
+    </div><!-- /.rsvp-wrapper -->
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer>
+    <p>A Between the Pipes project for <span>Danielle &amp; Stephan</span> &nbsp;·&nbsp; Created Feb 2025</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/nav.js"></script>
+  <script src="js/scroll-animations.js"></script>
+  <script src="js/rsvp.js"></script>
+</body>
+</html>
