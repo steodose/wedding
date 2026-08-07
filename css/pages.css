@@ -7,8 +7,9 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 100svh;
-  min-height: 500px;
+  height: 68svh;
+  min-height: 380px;
+  max-height: 720px;
   overflow: hidden;
   background: var(--color-text);
 }
@@ -65,21 +66,21 @@
 /* ── HOME: Names + Date ───────────────────────────────────── */
 .home-names {
   text-align: center;
-  padding: var(--space-xl) var(--space-md);
+  padding: var(--space-md) var(--space-md) var(--space-lg);
 }
 
 .home-names h1 {
   font-size: clamp(3.5rem, 9vw, 7rem);
-  font-style: italic;
-  line-height: 1.1;
+  line-height: 1.05;
   color: var(--color-text);
 }
 
 .home-names .ampersand {
   color: var(--color-accent);
   display: block;
-  font-size: 0.55em;
-  line-height: 1.8;
+  font-size: 0.5em;
+  line-height: 1;
+  margin: 0.15em 0;
 }
 
 .home-names .wedding-meta {
@@ -121,6 +122,7 @@
 }
 
 .countdown-section .eyebrow {
+  margin-inline: auto;
   font-size: 0.7rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -164,11 +166,15 @@
 
 .quick-links-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-md);
-  margin-top: var(--space-lg);
-  max-width: 800px;
+  max-width: 720px;
   margin-inline: auto;
+}
+
+/* Stack to a single column on narrow screens */
+@media screen and (max-width: 520px) {
+  .quick-links-grid { grid-template-columns: 1fr; }
 }
 
 .quick-link-card {
@@ -183,8 +189,23 @@
 }
 
 .quick-link-card .icon {
-  font-size: 2rem;
   margin-bottom: var(--space-xs);
+  color: var(--color-accent);
+}
+
+.quick-link-card .icon svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform var(--transition);
+}
+
+.quick-link-card:hover .icon svg {
+  transform: translateY(-2px);
 }
 
 .quick-link-card h3 {
@@ -293,7 +314,7 @@
 }
 
 /* Mobile timeline */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .timeline::before { left: 16px; }
 
   .timeline-item {
@@ -323,6 +344,41 @@
 
   .timeline-item:nth-child(even) .timeline-content { order: unset !important; }
   .timeline-item:nth-child(even) .timeline-photo { order: unset !important; }
+}
+
+/* ── OUR STORY: Closing + CTA ─────────────────────────────── */
+.story-closing {
+  text-align: center;
+  padding-top: var(--space-lg);
+}
+
+.story-closing .ornament {
+  font-family: var(--font-heading);
+  color: var(--color-accent-light);
+  font-size: 1.5rem;
+  letter-spacing: 0.5em;
+  /* Offset the trailing letter-space so the dots sit optically centered */
+  text-indent: 0.5em;
+  margin-inline: auto;
+  margin-bottom: var(--space-sm);
+}
+
+.story-closing-line {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--color-muted);
+  margin-inline: auto;
+}
+
+.story-cta {
+  text-align: center;
+  padding-top: var(--space-lg);
+}
+
+.story-cta p {
+  color: var(--color-muted);
+  margin: 0 auto var(--space-md);
 }
 
 /* ── GALLERY ──────────────────────────────────────────────── */
