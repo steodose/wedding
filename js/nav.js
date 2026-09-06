@@ -15,10 +15,13 @@
         </button>
         <ul class="nav-links" role="list">
           <li><a href="index.html" data-page="index">Home</a></li>
+          <li><a href="schedule.html" data-page="schedule">Schedule</a></li>
           <li><a href="our-story.html" data-page="our-story">Our Story</a></li>
-          <li><a href="gallery.html" data-page="gallery">Gallery</a></li>
           <li><a href="travels.html" data-page="travels">Travels</a></li>
+          <!-- Hidden until the official invitations go out — restore this line to show it again
           <li><a href="rsvp.html" data-page="rsvp">RSVP</a></li>
+          -->
+          <li><a href="accommodations.html" data-page="accommodations">Accommodations</a></li>
           <li><a href="registry.html" data-page="registry">Registry</a></li>
         </ul>
       </div>

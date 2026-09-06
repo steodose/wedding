@@ -1,0 +1,6 @@
+# Full-resolution image originals kept locally, not deployed
+images/_originals/
+
+# Print/PDF pieces and their source, kept local — the site doesn't serve them
+*.pdf
+engagement-timeline.html

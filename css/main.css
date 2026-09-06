@@ -150,6 +150,12 @@ p { max-width: 65ch; }
   border-bottom-color: var(--color-accent);
 }
 
+/* Eight nav items get tight between the hamburger breakpoint and desktop */
+@media (min-width: 681px) and (max-width: 940px) {
+  .nav-links { gap: 1.15rem; }
+  .nav-links a { font-size: 0.7rem; letter-spacing: 0.08em; }
+}
+
 /* Hamburger */
 .nav-toggle {
   display: none;
@@ -217,6 +223,27 @@ footer span {
   color: var(--color-accent-light);
   font-family: var(--font-heading);
   font-size: 1rem;
+}
+
+.footer-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  padding-bottom: 1px;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+  color: var(--color-accent-light);
+  border-bottom-color: var(--color-accent-light);
+}
+
+/* Inside the names span the text is already accent-light, so brighten instead */
+footer span .footer-link:hover,
+footer span .footer-link:focus-visible {
+  color: var(--color-white);
+  border-bottom-color: var(--color-white);
 }
 
 /* ── Scroll Fade-In Animation ─────────────────────────────── */
@@ -302,6 +329,12 @@ footer span {
 
 /* ── Page Header (inner pages) ────────────────────────────── */
 .page-hero {
+  /* Centered band between the nav and the content rule */
+  min-height: 34svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: var(--space-lg) var(--space-md);
   text-align: center;
   border-bottom: 1px solid var(--color-border);
