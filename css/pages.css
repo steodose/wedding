@@ -208,6 +208,20 @@
   transform: translateY(-2px);
 }
 
+/* Placeholder card that isn't clickable yet (e.g. RSVP before invitations go out) */
+.quick-link-card.is-disabled {
+  cursor: default;
+}
+
+.quick-link-card.is-disabled:hover {
+  border-color: var(--color-border);
+  transform: none;
+}
+
+.quick-link-card.is-disabled:hover .icon svg {
+  transform: none;
+}
+
 .quick-link-card h3 {
   font-size: 1.1rem;
   /* Icon + label only, so no trailing gap under the heading */
